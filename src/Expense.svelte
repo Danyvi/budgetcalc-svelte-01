@@ -24,7 +24,7 @@
 
 
 <script>
-  import { getContext } from 'svelte';
+  import { getContext, createEventDispatcher } from 'svelte';
   // accessing props
   export let id;
   export let name = "";
@@ -37,6 +37,8 @@
   }
 
   const remove = getContext('state');
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <article class="single-expense">
@@ -55,7 +57,10 @@
     <button class="expense-btn edit-btn">
       <i class="fas fa-pen"></i>
     </button>
-    <button class="expense-btn delete-btn" on:click="{ () => remove(id) }">
+    <!-- <button class="expense-btn delete-btn" on:click="{ () => remove(id) }">
+      <i class="fas fa-trash"></i>
+    </button> -->
+    <button class="expense-btn delete-btn" on:click="{ () => dispatch('delete', {id, name:'hello from expense component'}) }">
       <i class="fas fa-trash"></i>
     </button>
   </div>

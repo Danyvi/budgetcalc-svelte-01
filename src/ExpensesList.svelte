@@ -17,7 +17,7 @@ export let expenses = [];
     {#each expenses as expense, index}
        <!-- <Expense expense = {expense}/> -->
        <!-- <Expense {...expense} removeExpense = { removeExpense }/> this destructures the objects in its properties -->
-       <Expense {...expense} /> <!-- this destructures the objects in its properties -->
+       <Expense {...expense} on:delete/> <!-- this destructures the objects in its properties -->
        {:else}
         <h2>Currently you have no expenses</h2>
     {/each}

@@ -17,12 +17,22 @@
 	}
 	// context
 	setContext('state', state.remove)
+
+	// function created for the eventDispatcher
+	function deleteExpense(event) {
+		console.log(event);
+		const { id, name } = event.detail;
+		console.log('name of event ', name);
+		
+		removeExpense(id)
+		
+	}
 </script>
 
 <Navbar />
 <main class="content">
 	<!-- <ExpensesList expenses = { expenses } removeExpense = { removeExpense }/> -->
-	<ExpensesList expenses = { expenses } />
+	<ExpensesList expenses = { expenses } on:delete = { deleteExpense }/>
 </main>
 
 
