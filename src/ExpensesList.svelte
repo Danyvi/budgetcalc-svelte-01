@@ -2,7 +2,7 @@
 import SectionTitle from './Title.svelte'; 
 import Expense from './Expense.svelte';
 export let expenses = [];
-export let removeExpense;
+// export let removeExpense;
 </script>
 
 <style>
@@ -16,7 +16,8 @@ export let removeExpense;
   <ul>
     {#each expenses as expense, index}
        <!-- <Expense expense = {expense}/> -->
-       <Expense {...expense} removeExpense = { removeExpense }/> <!-- this destructures the objects in its properties -->
+       <!-- <Expense {...expense} removeExpense = { removeExpense }/> this destructures the objects in its properties -->
+       <Expense {...expense} /> <!-- this destructures the objects in its properties -->
        {:else}
         <h2>Currently you have no expenses</h2>
     {/each}
