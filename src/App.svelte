@@ -27,12 +27,18 @@
 		removeExpense(id)
 		
 	}
+
+	function clearExpenses(){
+		expenses = [];
+	}
+
 </script>
 
 <Navbar />
 <main class="content">
 	<!-- <ExpensesList expenses = { expenses } removeExpense = { removeExpense }/> -->
 	<ExpensesList expenses = { expenses } on:delete = { deleteExpense }/>
+	<button type = "button" class="btn btn-primary btn-block" on:click={clearExpenses}>Clear expenses</button>
 </main>
 
 
